@@ -25,8 +25,9 @@ class Fibonacci:
         which must be an integer.
         """
 
-        #  Total number of Fibonacci numbers to produce
-        self.max_count = max_count
+        self.max_count = max_count  #  Maximum number of iterations
+
+        self.current_count = 0  #  Keeps track of number of Fibonacci numbers generated
 
         #  Raises ValueError for non-integer input
         if not isinstance(max_count, int):
@@ -39,11 +40,17 @@ class Fibonacci:
     def __next__(self):
         """Defines the instance of Fibonacci class as an iterator"""
 
-        if self.max_count < 0:  #  Stop iteration for negative values
+        # Handle the case where max_count is 0 by returning 0 once
+        if self.max_count == 0 and self.current_count == 0:
+            self.current_count += 1
+            return 0
+
+        #  Stop iteration when the number of iterations equals max_count
+        if self.current_count >= self.max_count:
             raise StopIteration
 
-        if self.max_count  == 0:  #  Handling for position as 0
+        #  Counter incremented for next iteration
+        self.current_count += 1
 
-            #  Decrements position to ensure next call raises StopIteration
-            self.max_count  -= 1
-            return 0
+        # Return the current Fibonacci number
+        return 0

@@ -34,3 +34,11 @@ def test_max_count_0():
     if cast as a list.
     """
     assert list(Fibonacci(0)) == [0]
+
+def test_max_count_1():
+    """
+    Tests that [0,1] is returned with constructor value of 1
+    if cast as a list.
+    """
+    assert list(Fibonacci(1)) == [0,1]
+
