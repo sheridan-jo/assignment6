@@ -2,7 +2,7 @@
 Python Development II
 Assignment 6 - A Fibonacci Series Iterable
 John O.
-November 26, 2024
+December 1, 2024
 
 This program contains an iterable which produces an iterator of the
 Fibonacci series for a given value.
@@ -32,7 +32,17 @@ class Fibonacci:
             raise ValueError(f'{position} is not an integer.')
 
     def __iter__(self):
+        """Returns the instance of Fibonacci class as an iterator"""
         return self
 
     def __next__(self):
-        pass
+        """Defines the instance of Fibonacci class as an iterator"""
+
+        if self.position < 0:  #  Stop iteration for negative values
+            raise StopIteration
+
+        if self.position == 0:  #  Handling for position as 0
+
+            #  Decrements position to ensure next call raises StopIteration
+            self.position -= 1
+            return 0
