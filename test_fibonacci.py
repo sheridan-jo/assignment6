@@ -28,7 +28,7 @@ def test_non_integer():
     with pytest.raises(ValueError):
         Fibonacci(3.14)
 
-def test_position_0():
+def test_max_count_0():
     """
     Tests that [0] is returned with constructor value of 0
     if cast as a list.

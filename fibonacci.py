@@ -19,17 +19,18 @@ https://google.github.io/styleguide/pyguide.html
 class Fibonacci:
     """An iterable for creating a Fibonacci series"""
 
-    def __init__(self, position):
+    def __init__(self, max_count):
         """
         Constructor requires a single positional argument
         which must be an integer.
         """
 
-        self.position = position
+        #  Total number of Fibonacci numbers to produce
+        self.max_count = max_count
 
         #  Raises ValueError for non-integer input
-        if not isinstance(position, int):
-            raise ValueError(f'{position} is not an integer.')
+        if not isinstance(max_count, int):
+            raise ValueError(f'{max_count} is not an integer.')
 
     def __iter__(self):
         """Returns the instance of Fibonacci class as an iterator"""
@@ -38,11 +39,11 @@ class Fibonacci:
     def __next__(self):
         """Defines the instance of Fibonacci class as an iterator"""
 
-        if self.position < 0:  #  Stop iteration for negative values
+        if self.max_count < 0:  #  Stop iteration for negative values
             raise StopIteration
 
-        if self.position == 0:  #  Handling for position as 0
+        if self.max_count  == 0:  #  Handling for position as 0
 
             #  Decrements position to ensure next call raises StopIteration
-            self.position -= 1
+            self.max_count  -= 1
             return 0
