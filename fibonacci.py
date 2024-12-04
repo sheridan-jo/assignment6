@@ -53,4 +53,3 @@ class Fibonacci:
 
         self.current_count += 1  #  Counter incremented for next iteration
         return return_value  #  Returns the current Fibonacci number
-
