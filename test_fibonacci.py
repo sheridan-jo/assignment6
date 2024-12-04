@@ -41,3 +41,11 @@ def test_position_1():
     if cast as a list.
     """
     assert list(Fibonacci(1)) == [0,1]
+
+def test_position_2():
+    """
+        Tests that [0,1,1] is returned with constructor value of 2
+        if cast as a list.
+    """
+    assert list(Fibonacci(2)) == [0,1,1]
+
