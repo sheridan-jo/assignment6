@@ -3,7 +3,7 @@ Python Development II
 Assignment 6 - A Fibonacci Series Iterable
 Test Suite for fibonacci.py module
 John O.
-December 1, 2024
+December 3, 2024
 
 This is a test suite for the fibonacci.py module which tests its
 properties and methods.
@@ -28,17 +28,16 @@ def test_non_integer():
     with pytest.raises(ValueError):
         Fibonacci(3.14)
 
-def test_max_count_0():
+def test_position_0():
     """
     Tests that [0] is returned with constructor value of 0
     if cast as a list.
     """
     assert list(Fibonacci(0)) == [0]
 
-def test_max_count_1():
+def test_position_1():
     """
     Tests that [0,1] is returned with constructor value of 1
     if cast as a list.
     """
     assert list(Fibonacci(1)) == [0,1]
-

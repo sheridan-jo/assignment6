@@ -2,7 +2,7 @@
 Python Development II
 Assignment 6 - A Fibonacci Series Iterable
 John O.
-December 1, 2024
+December 3, 2024
 
 This program contains an iterable which produces an iterator of the
 Fibonacci series for a given value.
@@ -11,7 +11,6 @@ Usage:
 A position is entered into the constructor for which
 a Fibonacci series is generated.
 
-
 Documented according to Google Style Docstrings
 https://google.github.io/styleguide/pyguide.html
 """
@@ -19,19 +18,20 @@ https://google.github.io/styleguide/pyguide.html
 class Fibonacci:
     """An iterable for creating a Fibonacci series"""
 
-    def __init__(self, max_count):
+    def __init__(self, position):
         """
         Constructor requires a single positional argument
         which must be an integer.
         """
 
-        self.max_count = max_count  #  Maximum number of iterations
-
+        self.position = position  # Position in the sequence up to which values are generated
         self.current_count = 0  #  Keeps track of number of Fibonacci numbers generated
+        self.current_number = 0  #  Tracks current Fibonacci number, initialized as 0
+        self.next_number = 1  #  Tracks next Fibonacci number, initialized as 1
 
         #  Raises ValueError for non-integer input
-        if not isinstance(max_count, int):
-            raise ValueError(f'{max_count} is not an integer.')
+        if not isinstance(position, int):
+            raise ValueError(f'{position} is not an integer.')
 
     def __iter__(self):
         """Returns the instance of Fibonacci class as an iterator"""
@@ -40,17 +40,16 @@ class Fibonacci:
     def __next__(self):
         """Defines the instance of Fibonacci class as an iterator"""
 
-        # Handle the case where max_count is 0 by returning 0 once
-        if self.max_count == 0 and self.current_count == 0:
-            self.current_count += 1
-            return 0
-
-        #  Stop iteration when the number of iterations equals max_count
-        if self.current_count >= self.max_count:
+        #  Stops iteration when the number of iterations is greater than position
+        if self.current_count > self.position:
             raise StopIteration
 
-        #  Counter incremented for next iteration
-        self.current_count += 1
+        # Updates and returns the next Fibonacci number, starting from 0
 
-        # Return the current Fibonacci number
-        return 0
+        return_value = self.current_number  #  Value returned, starting from 0
+        next_number = self.current_number + self.next_number  #  Adds previous 2 numbers
+        self.current_number = self.next_number  #  Updates current number to next in the sequence
+        self.next_number = next_number  # Updates the next number in the sequence
+
+        self.current_count += 1  #  Counter incremented for next iteration
+        return return_value  #  Returns the current Fibonacci number
