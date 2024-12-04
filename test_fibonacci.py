@@ -67,4 +67,4 @@ def test_negative_value():
     """
         Tests that the iterator produces an empty list with a negative constructor value
     """
-    assert list(Fibonacci(-6)) == []
+    assert not list(Fibonacci(-6))
