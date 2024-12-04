@@ -49,3 +49,9 @@ def test_position_2():
     """
     assert list(Fibonacci(2)) == [0,1,1]
 
+def test_position_4():
+    """
+        Tests that [0,1,1,2,3] is returned with constructor value of 4
+        if cast as a list.
+    """
+    assert list(Fibonacci(4)) == [0,1,1,2,3]
