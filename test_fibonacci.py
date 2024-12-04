@@ -62,3 +62,9 @@ def test_position_10():
         if cast as a list.
     """
     assert list(Fibonacci(10)) == [0,1,1,2,3,5,8,13,21,34,55]
+
+def test_negative_value():
+    """
+        Tests that the iterator produces an empty list with a negative constructor value
+    """
+    assert list(Fibonacci(-6)) == []
