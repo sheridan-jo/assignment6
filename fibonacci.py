@@ -2,7 +2,7 @@
 Python Development II
 Assignment 6 - A Fibonacci Series Iterable
 John O.
-December 3, 2024
+December 4, 2024
 
 This program contains an iterable which produces an iterator of the
 Fibonacci series for a given value.
@@ -16,7 +16,17 @@ https://google.github.io/styleguide/pyguide.html
 """
 
 class Fibonacci:
-    """An iterable for creating a Fibonacci series"""
+    """
+    An iterable for creating a Fibonacci series
+
+    Args:
+        position (int): Position in the sequence up to which values are generated
+
+    Attributes:
+        current_count (int): Keeps track of number of Fibonacci numbers generated
+        current_number (int): Tracks current Fibonacci number, initialized as 0
+        next_number (int): Tracks next Fibonacci number, initialized as 1
+    """
 
     def __init__(self, position):
         """

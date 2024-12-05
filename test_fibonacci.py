@@ -3,7 +3,7 @@ Python Development II
 Assignment 6 - A Fibonacci Series Iterable
 Test Suite for fibonacci.py module
 John O.
-December 3, 2024
+December 4, 2024
 
 This is a test suite for the fibonacci.py module which tests its
 properties and methods.
